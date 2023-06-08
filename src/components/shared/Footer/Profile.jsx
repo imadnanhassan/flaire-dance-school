@@ -10,7 +10,7 @@ const Profile = () => {
       <div className=" md:mx-0 mx-auto items-center text-center  md:text-left">
         <Link
           to={"/"}
-          className="flex title-font font-medium items-center md:justify-start justify-center text-white"
+          className="flex title-font mx-auto font-medium items-center md:justify-start justify-center text-white"
         >
           <Logo></Logo>
         </Link>
@@ -18,15 +18,15 @@ const Profile = () => {
           Air plant banjo lyft occupy retro adaptogen indego
         </p>
 
-        <div className="flex gap-3 items-center py-2 ">
+        <div className="flex gap-3 items-center py-2 md:justify-start justify-center">
           <FaLocationArrow></FaLocationArrow>
-          <span>Jl. Menteng Raya, Jakarta</span>
+          <span >Jl. Menteng Raya, Jakarta</span>
         </div>
-        <div className="flex gap-3 items-center py-2">
+        <div className="flex gap-3 items-center py-2 md:justify-start justify-center">
           <FaVoicemail></FaVoicemail>
           <span>mail@adnanhassan.com</span>
         </div>
-        <div className="flex gap-3 items-center py-2 ">
+        <div className="flex gap-3 items-center py-2 md:justify-start justify-center">
           <FaPhone></FaPhone>
           <span>+62 876-543-210</span>
         </div>

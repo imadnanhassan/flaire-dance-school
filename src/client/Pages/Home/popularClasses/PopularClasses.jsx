@@ -2,7 +2,7 @@ import React from 'react';
 
 const PopularClasses = () => {
    return (
-      <div className='bg-rose-400'>
+      <div className=''>
          Popular Classes
       </div>
    );

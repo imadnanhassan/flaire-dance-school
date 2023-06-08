@@ -10,7 +10,7 @@ const Button = ({ label, onClick, disabled, outline, small, icon: Icon }) => {
          rounded-lg
          hover:opacity-80
          transition
-         w-full
+         md:w-full
          px-2
          ${outline ? 'bg-white' : 'bg-rose-600'}
          ${outline ? 'border-black' : 'border-rose-500'}
