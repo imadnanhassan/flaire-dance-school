@@ -4,6 +4,7 @@ import Banner from "../../../components/shared/NavBar/Banner";
 import PopularClasses from "./popularClasses/popularClasses";
 import Instructors from "./Instructors/Instructors";
 import WhoWeAre from "./WhoWeAre/WhoWeAre";
+import Categories from "./Categories/Categories";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <div className="pt-14">
         <Container>
           <WhoWeAre></WhoWeAre>
+          <Categories></Categories>
           <PopularClasses></PopularClasses>
           <Instructors></Instructors>
         </Container>

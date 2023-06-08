@@ -1,14 +1,9 @@
 import React from "react";
-
-import { Link } from "react-router-dom";
-
 import {
   FaFacebook,
-  FaFacebookSquare,
   FaInstagram,
   FaLinkedin,
   FaTwitter,
-  FaTwitterSquare,
 } from "react-icons/fa";
 
 import Container from "../../Container";
@@ -19,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="text-white bg-black">
       <Container>
-        <div className="px-5 py-24 md:items-center  lg:items-start md:flex-row md:flex-nowrap flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div className=" py-24 md:items-center  lg:items-start md:flex-row md:flex-nowrap flex flex-wrap  -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <Profile></Profile>
           </div>
