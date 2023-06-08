@@ -7,7 +7,7 @@ import Logo from "../NavBar/Logo/Logo";
 const Profile = () => {
   return (
     <>
-      <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+      <div className=" md:mx-0 mx-auto items-center text-center  md:text-left">
         <Link
           to={"/"}
           className="flex title-font font-medium items-center md:justify-start justify-center text-white"
@@ -18,7 +18,7 @@ const Profile = () => {
           Air plant banjo lyft occupy retro adaptogen indego
         </p>
 
-        <div className="flex gap-3 items-center py-2">
+        <div className="flex gap-3 items-center py-2 ">
           <FaLocationArrow></FaLocationArrow>
           <span>Jl. Menteng Raya, Jakarta</span>
         </div>
@@ -26,7 +26,7 @@ const Profile = () => {
           <FaVoicemail></FaVoicemail>
           <span>mail@adnanhassan.com</span>
         </div>
-        <div className="flex gap-3 items-center py-2">
+        <div className="flex gap-3 items-center py-2 ">
           <FaPhone></FaPhone>
           <span>+62 876-543-210</span>
         </div>
