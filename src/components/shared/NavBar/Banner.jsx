@@ -1,36 +1,26 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+
+
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import "react-awesome-slider/dist/styles.css";
 
 import img1 from "../../../assets/Banner/banner1.jpg";
 import img2 from "../../../assets/Banner/banner2.jpg";
 import img3 from "../../../assets/Banner/banner3.jpg";
-// import img4 from '../../../assets/home/04.jpg';
-// import img5 from '../../../assets/home/05.png';
-// import img6 from '../../../assets/home/06.png';
 
 const Banner = () => {
+  const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
-    <div className="h-80">
-      <Carousel>
-        <div>
-          <img src={img1} />
-        </div>
-        <div>
-          <img src={img2} />
-        </div>
-        <div>
-          <img src={img3} />
-        </div>
-        <div>
-          <img src={img1} />
-        </div>
-        <div>
-          <img src={img2} />
-        </div>
-        <div>
-          <img src={img3} />
-        </div>
-      </Carousel>
+    <div>
+      <AutoplaySlider
+        play={true}
+        cancelOnInteraction={false} // should stop playing on user interaction
+        interval={6000}
+      >
+        <div data-src={img1} />
+        <div data-src={img2} />
+        <div data-src={img3} />
+      </AutoplaySlider>
     </div>
   );
 };
