@@ -5,7 +5,7 @@ const Home = () => {
    return (
       <div>
          <Container>
-            <div>Main Content</div>
+            
          </Container>
       </div>
    );
