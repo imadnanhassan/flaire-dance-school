@@ -1,26 +1,26 @@
 import React from "react";
-import Logo from "../NavBar/Logo/Logo";
+
 import { Link } from "react-router-dom";
 
-import { FaFacebookSquare, FaSquareTwitter } from "react-icons/fa";
+import {
+  FaFacebookSquare,
+  FaLinkedin,
+  FaLocationArrow,
+  FaPhone,
+  FaTwitterSquare,
+  FaVoicemail,
+} from "react-icons/fa";
+
 import Container from "../../Container";
+import Profile from "./Profile";
 
 const Footer = () => {
   return (
     <footer className="text-white bg-black">
       <Container>
         <div className=" px-5 py-24  flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-          <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <Link
-              to={"/"}
-              className="flex title-font font-medium items-center md:justify-start justify-center text-white"
-            >
-              <Logo></Logo>
-            </Link>
-            <p className="mt-2 text-sm text-white">
-              Air plant banjo lyft occupy retro adaptogen indego
-            </p>
-          </div>
+          <Profile></Profile>
+
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">
@@ -114,15 +114,13 @@ const Footer = () => {
               <a className="text-gray-500 text-2xl">
                 <FaFacebookSquare></FaFacebookSquare>
               </a>
-              <a className="ml-3 text-gray-500">
-               <FaSquareTwitter></FaSquareTwitter>
+              <a className="ml-3 text-gray-500 text-2xl">
+                <FaTwitterSquare></FaTwitterSquare>
               </a>
-              <a className="ml-3 text-gray-500">
-                
+              <a className="ml-3 text-gray-500 text-2xl">
+                <FaLinkedin></FaLinkedin>
               </a>
-              <a className="ml-3 text-gray-500">
-                
-              </a>
+              <a className="ml-3 text-gray-500 text-2xl"></a>
             </span>
           </div>
         </div>
