@@ -11,12 +11,10 @@ const Home = () => {
     <>
       <Banner></Banner>
       <div className="pt-14">
-        <Container>
-          <WhoWeAre></WhoWeAre>
-          <Categories></Categories>
-          <PopularClasses></PopularClasses>
-          <Instructors></Instructors>
-        </Container>
+        <WhoWeAre></WhoWeAre>
+        <Categories></Categories>
+        <PopularClasses></PopularClasses>
+        <Instructors></Instructors>
       </div>
     </>
   );
