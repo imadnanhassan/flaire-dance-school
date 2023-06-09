@@ -35,14 +35,14 @@ const Categories = () => {
       <div className="bg-[url('https://i.ibb.co/72rj1Xc/category.png')] bg-center bg-repeat bg-slate-200 py-28 px-14">
         <Container>
           <div className="pb-5 ">
-            <h2 className="text-[#E6382E] text-3xl font-bold">
+            <h2 className="text-[#E6382E] md:text-3xl md:font-bold text-2xl font-semibold">
               Top Categories
             </h2>
           </div>
-          <div className="grid grid-cols-3 gap-16 ">
+          <div className="md:grid grid-cols-3 gap-16  ">
             {topCategories.map((category) => (
               <div
-                className="font-semibold text-xl text-gray-800 bg-white py-8 transition-all hover:shadow-xl shadow-lg hover:text-[#E6382E] cursor-pointer rounded-md "
+                className="font-semibold mb-5 text-xl text-gray-800 bg-white py-8 transition-all hover:shadow-xl shadow-lg hover:text-[#E6382E] cursor-pointer rounded-md "
                 key={category.id}
               >
                 <Link to={'/'}>
