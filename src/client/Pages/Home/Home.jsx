@@ -9,7 +9,7 @@ import Categories from "./Categories/Categories";
 const Home = () => {
   return (
     <>
-      <Banner></Banner>
+     <Banner></Banner>
       <div className="pt-14">
         <WhoWeAre></WhoWeAre>
         <Categories></Categories>
