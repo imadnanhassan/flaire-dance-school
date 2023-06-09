@@ -21,14 +21,7 @@ const ClassCard = ({ item }) => {
         <p>Available seats {seats}</p>
             <p>Price: {price}</p>
           </div>
-          <div className="mt-5">
-            <button
-              type="button"
-              className="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-900"
-            >
-              Start Creating
-            </button>
-          </div>
+          
         </div>
       </Link>
     </div>
