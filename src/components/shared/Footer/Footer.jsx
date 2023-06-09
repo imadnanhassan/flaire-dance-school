@@ -93,6 +93,7 @@ const Footer = () => {
                 <Button label={"Subscribe"}></Button>
               </div>
               <div className="flex gap-4 item-center mx-auto py-2">
+               
                 <span className=" transition-all cursor-pointer rounded-full px-2 py-2 text-gray-300 bg-[#1C1919]  hover:bg-[#E6E6E6] hover:text-black text-2xl">
                   <FaFacebook></FaFacebook>
                 </span>
