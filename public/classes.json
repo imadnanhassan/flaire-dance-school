@@ -1,73 +1,73 @@
 [
    {
      "id": 1,
-     "image": "image_url_1",
-     "name": "Class Name 1",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
+     "name": "HIP HOP DANCE",
      "instructor": "Instructor Name 1",
-     "description": "Class Description 1",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 10,
      "price": 50
    },
    {
      "id": 2,
-     "image": "image_url_2",
-     "name": "Class Name 2",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
+     "name": "K-POP DANCE",
      "instructor": "Instructor Name 2",
-     "description": "Class Description 2",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 5,
      "price": 75
    },
    {
      "id": 3,
-     "image": "image_url_3",
-     "name": "Class Name 3",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
+     "name": "BALLET DANCE",
      "instructor": "Instructor Name 3",
-     "description": "Class Description 3",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 0,
      "price": 100
    },
    {
      "id": 4,
-     "image": "image_url_4",
-     "name": "Class Name 4",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
+     "name": "CONTEMPORARY",
      "instructor": "Instructor Name 4",
-     "description": "Class Description 4",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 2,
      "price": 60
    },
    {
      "id": 5,
-     "image": "image_url_5",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
      "name": "Class Name 5",
-     "instructor": "Instructor Name 5",
-     "description": "Class Description 5",
+     "instructor": "POLE DANCE",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 8,
      "price": 90
    },
    {
      "id": 6,
-     "image": "image_url_6",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
      "name": "Class Name 6",
-     "instructor": "Instructor Name 6",
-     "description": "Class Description 6",
+     "instructor": "SALSA DANCE",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 4,
      "price": 70
    },
    {
      "id": 7,
-     "image": "image_url_7",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
      "name": "Class Name 7",
      "instructor": "Instructor Name 7",
-     "description": "Class Description 7",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 3,
      "price": 80
    },
    {
      "id": 8,
-     "image": "image_url_8",
+     "image": "https://i.ibb.co/N3g1bcD/class1.jpg",
      "name": "Class Name 8",
      "instructor": "Instructor Name 8",
-     "description": "Class Description 8",
+     "description": "Create Exprience for any subject with the topics you and your students care about",
      "seats": 6,
      "price": 55
    }

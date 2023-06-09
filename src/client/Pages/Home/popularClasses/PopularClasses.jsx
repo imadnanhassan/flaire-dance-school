@@ -18,6 +18,7 @@ const PopularClasses = () => {
         console.log("Error fetching classess:", error);
       });
   }, []);
+
   return (
     <div className="bg-[#050101] text-white py-10">
       <Container>
@@ -38,19 +39,18 @@ const PopularClasses = () => {
             </div>
           </div>
           <Link to={"/about"}>
-            <button className="py-4 px-8 rounded-md bg-[#E6382E] transition-all hover:bg-rose-500 font-semibold text-white">
-              About Us
+            <button className="py-4 px-8 rounded-md uppercase bg-[#E6382E] transition-all hover:bg-rose-500 font-semibold text-white">
+             View All Class
             </button>
           </Link>
         </div>
-        <div>
-          Popular Class
-          <div>
-            {courses.map((item) => (
-              <ClassCard key={item.id} item={item}></ClassCard>
-            ))}
-          </div>
+
+        <div className="grid grid-cols-3 gap-8 py-10">
+          {courses.slice(0, 6).map((item) => (
+            <ClassCard key={item.id} item={item}></ClassCard>
+          ))}
         </div>
+        
       </Container>
     </div>
   );
