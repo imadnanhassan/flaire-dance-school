@@ -1,7 +1,7 @@
 import Container from "../../../components/Container";
 import LoginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../provaider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
@@ -9,6 +9,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -23,7 +24,7 @@ const SignUp = () => {
     }
     createUser(data.email, data.password)
       .then((result) => {
-        Navigate("/sign-in");
+         navigate("/");
         console.log(createUser);
       })
       .catch((error) => console.log(error));
