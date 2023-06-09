@@ -5,10 +5,10 @@ const Instructors = () => {
   return (
     <div className="bg-[url('https://i.ibb.co/72rj1Xc/category.png')] bg-center bg-repeat bg-slate-200 py-28 px-14">
       <Container>
-        <div className="max-w-md py-4 px-8 bg-white shadow-xl rounded-lg my-20">
-          <div className="flex justify-center md:justify-start -mt-20 -ml-8">
+        <div className="md:max-w-md py-4 px-8 bg-white shadow-xl rounded-lg my-20">
+          <div className="flex justify-center md:justify-start sm:justify-start lg:justify-start sm:-ml-8 md:-mt-20 -mt-16  md:-ml-8">
             <img
-              className="w-36 h-36 object-cover rounded-full "
+              className="md:w-36 md:h-36 w-20 h-20 object-cover rounded-full "
               src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
             />
           </div>
