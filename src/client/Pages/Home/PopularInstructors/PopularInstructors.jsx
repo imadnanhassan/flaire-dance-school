@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../../../../components/Container";
 
-const Instructors = () => {
+const PopularInstructors = () => {
   return (
     <div className="bg-[url('https://i.ibb.co/72rj1Xc/category.png')] bg-center bg-repeat bg-slate-200 py-28 px-14">
       <Container>
@@ -34,4 +34,4 @@ const Instructors = () => {
   );
 };
 
-export default Instructors;
+export default PopularInstructors;
