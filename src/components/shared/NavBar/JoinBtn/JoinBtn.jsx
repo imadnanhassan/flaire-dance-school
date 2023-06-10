@@ -25,7 +25,7 @@ const JoinBtn = ({ setIsOpen, isOpen }) => {
             )}
 
             {isOpen && user ? (
-              <div className="absolute top-12 right-0 bg-white py-10 px-5 flex flex-col gap-4">
+              <div className="absolute top-12 right-0 bg-white py-10 px-8 flex flex-col gap-4 rounded-md shadow-lg">
                 <Link to={'/dashboard'}>DashBoard</Link>
                 <span onClick={logOut}>LogOut</span>
               </div>

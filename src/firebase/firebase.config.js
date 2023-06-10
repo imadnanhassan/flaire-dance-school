@@ -1,12 +1,12 @@
 
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyAInc9pxwmpSwWFLifyoAXtPItwEMUUmhg",
-  authDomain: "flaire-dance-school.firebaseapp.com",
-  projectId: "flaire-dance-school",
-  storageBucket: "flaire-dance-school.appspot.com",
-  messagingSenderId: "578118284857",
-  appId: "1:578118284857:web:e43559d80ae1f2c4b07fe8"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId
 };
 
 
