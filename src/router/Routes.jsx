@@ -6,6 +6,7 @@ import SignUp from "../client/Pages/SignUp/SignUp";
 import Login from "../client/Pages/Login/Login";
 import Blog from "../client/Pages/Blog/Blog";
 import Instructor from "../client/Pages/Instructor/Instructor";
+import Classess from "../client/Pages/Home/Classess/Classess";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/instructor",
         element: <Instructor></Instructor>,
+      },
+      {
+        path: "/classess",
+        element: <Classess></Classess>,
       },
       {
         path: "/blog",
@@ -37,7 +42,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <></>
+    element: <></>,
   },
 ]);
 export default router;

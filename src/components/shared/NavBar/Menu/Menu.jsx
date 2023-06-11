@@ -18,7 +18,7 @@ const Menu = ({isOpen}) => {
         </NavLink>
       </li>
       <li>
-        <NavLink className="  px-4 -mb-1 border-b-2 border-transparent">
+        <NavLink to={'/classess'} className="  px-4 -mb-1 border-b-2 border-transparent">
           Class
         </NavLink>
       </li>

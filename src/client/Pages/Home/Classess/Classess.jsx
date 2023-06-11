@@ -1,26 +1,23 @@
 import React from "react";
 import Container from "../../../../components/Container";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useEffect } from "react";
-import ClassCard from "./ClassCard";
+import axios from "axios";
+import { useState } from "react";
+import AllClassCard from "./AllClassCard";
 
-const PopularClasses = () => {
-  const [courses, setCourses] = useState([]);
+const Classess = () => {
+  const [classData, setClassData] = useState([]);
   useEffect(() => {
-    fetch("./classes.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setCourses(data);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log("Error fetching classess:", error);
-      });
+    axios.get("http://localhost:5000/class").then((response) => {
+      // Handle the response data
+      console.log(response.data);
+      setClassData(response.data);
+    });
   }, []);
+ 
 
   return (
-    <div className="bg-[#050101] text-white py-10">
+    <div>
       <Container>
         <div className="md:flex items-end justify-between">
           <div className="md:text-left">
@@ -40,16 +37,12 @@ const PopularClasses = () => {
               </p>
             </div>
           </div>
-          <Link to={"/about"}>
-            <button className="py-4 px-8 md:w-48  w-full rounded-md uppercase bg-[#E6382E] transition-all hover:bg-rose-500 font-semibold text-white">
-              View All Class
-            </button>
-          </Link>
+         
         </div>
 
         <div className="md:grid grid-cols-3 gap-8 py-10">
-          {courses.slice(0, 6).map((item) => (
-            <ClassCard key={item.id} item={item}></ClassCard>
+          {classData.map((item) => (
+            <AllClassCard key={item._id} item={item}></AllClassCard>
           ))}
         </div>
       </Container>
@@ -57,4 +50,4 @@ const PopularClasses = () => {
   );
 };
 
-export default PopularClasses;
+export default Classess;

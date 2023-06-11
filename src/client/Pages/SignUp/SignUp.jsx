@@ -15,7 +15,8 @@ const SignUp = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors  },
+    reset
   } = useForm();
 
   const onsubmit = (data) => {
@@ -27,6 +28,7 @@ const SignUp = () => {
       .then((result) => {
         navigate(from, { replace: true });
         console.log(createUser);
+        reset();
       })
       .catch((error) => console.log(error));
 
@@ -62,12 +64,13 @@ const SignUp = () => {
             />
           </div> */}
           <div className=" border-2 w-1/3 mx-auto">
-            <h3 className="text-rose-500 font-semibold text-xl pt-4">Login From Here</h3>
+            <h3 className="text-rose-500 font-semibold text-xl pt-4">
+              Login From Here
+            </h3>
 
             <div>
               <div className=" px-8 ">
                 <form onSubmit={handleSubmit(onsubmit)}>
-                
                   <div className="mt-8">
                     <button
                       onClick={handleGoogleSignIn}
@@ -146,7 +149,10 @@ const SignUp = () => {
 
                   <div className="mt-4 flex items-center justify-between">
                     <span className="border-b w-1/5 md:w-1/4" />
-                    <Link to={'/sign-in'} className="text-base text-white border-2 px-2 py-2 rounded-md bg-rose-500 hover:bg-rose-600 uppercase">
+                    <Link
+                      to={"/sign-in"}
+                      className="text-base text-white border-2 px-2 py-2 rounded-md bg-rose-500 hover:bg-rose-600 uppercase"
+                    >
                       or sign In
                     </Link>
                     <span className="border-b w-1/5 md:w-1/4" />

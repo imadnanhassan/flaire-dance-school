@@ -19,6 +19,7 @@ const Login = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -26,7 +27,7 @@ const Login = () => {
     signIn(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-
+        reset()
         navigate(from, { replace: true });
       })
       .catch((error) => {
