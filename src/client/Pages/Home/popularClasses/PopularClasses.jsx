@@ -12,7 +12,7 @@ const PopularClasses = () => {
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
-        console.log(data);
+        
       })
       .catch((error) => {
         console.log("Error fetching classess:", error);

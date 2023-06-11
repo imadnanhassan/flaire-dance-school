@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAdmin from "../../../../hook/useAdmin";
+import { useContext } from "react";
+import { AuthContext } from "../../../../provaider/AuthProvider";
+import useInstructor from "../../../../hook/useInstructor";
 
 const AllClassCard = ({ item }) => {
-
   const { _id, image, name, instructor, description, seats, price } = item;
+  const { user, loading, setloading } = useContext(AuthContext);
 
+  const isAdmin = useAdmin(user?.email);
+  const isInstructor = useInstructor(user?.email);
 
+  
 
   return (
     <div>
@@ -28,7 +35,9 @@ const AllClassCard = ({ item }) => {
         </div>
       </Link>
       <div className="py-2 border-2">
-        <button className="py-2 px-5 ">selected</button>
+        <button 
+        disabled={isAdmin || isInstructor}
+        className="py-2 px-5 bg-rose-300 text-white">selected</button>
       </div>
     </div>
   );
