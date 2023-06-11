@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Dashboard = () => {
+const MySelectedClass = () => {
    return (
       <div>
-         welcome
+         
       </div>
    );
 };
 
-export default Dashboard;
+export default MySelectedClass;
