@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import useAdmin from "../../../../hook/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../../../../provaider/AuthProvider";
@@ -14,8 +13,8 @@ const AllClassCard = ({ item }) => {
   console.log(isAdmin, isInstructor);
 
   return (
-    <div>
-      <Link className="p-8 max-w-lg   rounded-2xl hover:shadow-sm hover:shadow-rose-400 flex flex-col items-center">
+    <div className="group">
+      <div className="p-8 max-w-lg   rounded-2xl hover:shadow-sm  group-hover:shadow-rose-400 flex flex-col items-center">
         <img src={image} className="shadow rounded-lg overflow-hidden border" />
         <div className="mt-8 md:text-left">
           <div className="flex flex-col">
@@ -32,14 +31,14 @@ const AllClassCard = ({ item }) => {
             <p>Price: {price}</p>
           </div>
         </div>
-      </Link>
-      <div className="py-2 border-2">
-        <button
-          disabled={isAdmin || isInstructor || seats === 0}
-          className="py-2 px-5 bg-rose-500 hover:bg-rose-800 text-white"
-        >
-          selected
-        </button>
+        <div className="pt-2">
+          <button
+            disabled={isAdmin || isInstructor || seats === 0}
+            className="py-2 px-5 rounded-md bg-rose-500 group-hover:bg-rose-400 text-white"
+          >
+            Enroll Now
+          </button>
+        </div>
       </div>
     </div>
   );

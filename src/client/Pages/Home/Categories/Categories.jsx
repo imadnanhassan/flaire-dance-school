@@ -31,7 +31,7 @@ const Categories = () => {
   ];
 
   return (
-    <div className="pt-10">
+    <div className="pt-10 text-center">
       <div className="bg-[url('https://i.ibb.co/72rj1Xc/category.png')] bg-center bg-repeat bg-slate-200 py-28 px-14">
         <Container>
           <div className="pb-5 ">

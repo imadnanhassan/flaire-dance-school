@@ -18,13 +18,13 @@ const Classess = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
-    <div>
+    <div className="py-10">
       {loading ? (
-        <Loader></Loader>
+        <Loader ></Loader>
       ) : (
         <Container>
           <div className="md:flex items-end justify-between">
