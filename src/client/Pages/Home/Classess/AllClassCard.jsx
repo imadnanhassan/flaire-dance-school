@@ -9,10 +9,9 @@ const AllClassCard = ({ item }) => {
   const { _id, image, name, instructor, description, seats, price } = item;
   const { user, loading, setloading } = useContext(AuthContext);
 
-  const isAdmin = useAdmin(user?.email);
-  const isInstructor = useInstructor(user?.email);
-
-  
+  const { isAdmin } = useAdmin(user?.email);
+  const { isInstructor } = useInstructor(user?.email);
+  console.log(isAdmin, isInstructor);
 
   return (
     <div>
@@ -35,9 +34,12 @@ const AllClassCard = ({ item }) => {
         </div>
       </Link>
       <div className="py-2 border-2">
-        <button 
-        disabled={isAdmin || isInstructor}
-        className="py-2 px-5 bg-rose-300 text-white">selected</button>
+        <button
+          disabled={isAdmin || isInstructor || seats === 0}
+          className="py-2 px-5 bg-rose-500 hover:bg-rose-800 text-white"
+        >
+          selected
+        </button>
       </div>
     </div>
   );

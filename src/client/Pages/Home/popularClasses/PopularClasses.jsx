@@ -4,19 +4,18 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import ClassCard from "./ClassCard";
+import axios from "axios";
 
 const PopularClasses = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    fetch("./classes.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setCourses(data);
-        
-      })
-      .catch((error) => {
-        console.log("Error fetching classess:", error);
-      });
+    axios.get("http://localhost:5000/class").then((response) => {
+      setCourses(response.data);
+      const data = response.data;
+      const sort = data.sort((a, b) => b.seats - a.seats);
+      const sortData = sort.slice(0,6)
+      console.log(sortData);
+    });
   }, []);
 
   return (
@@ -40,7 +39,7 @@ const PopularClasses = () => {
               </p>
             </div>
           </div>
-          <Link to={"/about"}>
+          <Link to={"/classess"}>
             <button className="py-4 px-8 md:w-48  w-full rounded-md uppercase bg-[#E6382E] transition-all hover:bg-rose-500 font-semibold text-white">
               View All Class
             </button>
@@ -48,7 +47,7 @@ const PopularClasses = () => {
         </div>
 
         <div className="md:grid grid-cols-3 gap-8 py-10">
-          {courses.slice(0, 6).map((item) => (
+          {courses.slice(0,6).map((item) => (
             <ClassCard key={item.id} item={item}></ClassCard>
           ))}
         </div>

@@ -6,6 +6,7 @@ const Loader = () => {
          className='
       h-[70vh]
       flex 
+      gap-3
       flex-col 
       justify-center 
       items-center 
