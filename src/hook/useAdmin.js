@@ -10,7 +10,7 @@ const useAdmin = (email) => {
       setIsLoading(true); 
 
       try {
-        const response = await axios.get('http://localhost:5000/user');
+        const response = await axios.get('https://flaire-dance-schol-server.vercel.app/user');
         const userData = response.data.find(user => user.email === email);
         if (userData && userData.role === 'admin') {
           setIsAdmin(true);

@@ -10,7 +10,7 @@ const AllClassCard = ({ item }) => {
 
   const { isAdmin } = useAdmin(user?.email);
   const { isInstructor } = useInstructor(user?.email);
-  console.log(isAdmin, isInstructor);
+  // console.log(isAdmin, isInstructor);
 
   return (
     <div className="group">

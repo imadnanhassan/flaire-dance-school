@@ -1,10 +1,10 @@
 import Container from "../../../components/Container";
-import LoginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../provaider/AuthProvider";
-import toast, { Toaster } from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUser, loading, setLoading, signInWithGoogle } =
@@ -15,8 +15,8 @@ const SignUp = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors  },
-    reset
+    formState: { errors },
+    reset,
   } = useForm();
 
   const onsubmit = (data) => {
@@ -27,12 +27,11 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((result) => {
         navigate(from, { replace: true });
-        console.log(createUser);
-        reset();
+        
       })
-      .catch((error) => console.log(error));
 
-    console.log(data);
+      .catch((error) => console.log(error));
+    reset();
   };
 
   // Google signin
@@ -86,6 +85,18 @@ const SignUp = () => {
                       or login with email
                     </p>
                     <span className="border-b w-1/5 lg:w-1/4" />
+                  </div>
+
+                  <div className="mt-4">
+                    <label className="block text-rose-500 text-sm font-bold mb-2">
+                      Your Name
+                    </label>
+                    <input
+                      {...register("name")}
+                      className="bg-rose-200 text-rose-700 focus:outline-none focus:shadow-outline border border-rose-300 rounded py-2 px-4 block w-full appearance-none"
+                      type="name"
+                      placeholder="Your Name"
+                    />
                   </div>
 
                   <div className="mt-4">

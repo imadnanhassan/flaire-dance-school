@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function getClass() {
   try {
-    const response = await axios.get("http://localhost:5000/class");
+    const response = await axios.get("https://flaire-dance-schol-server.vercel.app/class");
     //  console.log(response)
     return response;
   } catch (error) {

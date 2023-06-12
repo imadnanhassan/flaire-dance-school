@@ -10,7 +10,7 @@ const Classess = () => {
   const [classData, setClassData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get("http://localhost:5000/class").then((response) => {
+    axios.get("https://flaire-dance-schol-server.vercel.app/class").then((response) => {
       setClassData(response.data);
     });
   }, []);

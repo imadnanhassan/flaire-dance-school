@@ -9,7 +9,7 @@ import axios from "axios";
 const PopularClasses = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/class").then((response) => {
+    axios.get("https://flaire-dance-schol-server.vercel.app/class").then((response) => {
       setCourses(response.data);
       const data = response.data;
       const sort = data.sort((a, b) => b.seats - a.seats);
