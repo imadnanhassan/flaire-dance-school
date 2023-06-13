@@ -1,35 +1,45 @@
 import Container from "../../../components/Container";
 import { useForm } from "react-hook-form";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../provaider/AuthProvider";
-import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
 
 const SignUp = () => {
-  const { createUser, loading, setLoading, signInWithGoogle } =
+  const { createUser, loading, setLoading, signInWithGoogle,updateUserProfile } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onsubmit = (data) => {
+    console.log(data.name);
     if (data.password !== data.confirm_password) {
       toast.error("Password didn't Match.");
       return;
     }
     createUser(data.email, data.password)
       .then((result) => {
-        navigate(from, { replace: true });
-        
-      })
+        const user = result.user;
+        const name = data.name;
+        const email = user.email;
+        const role = 'student';
 
+
+        const userInfo = {
+          displayName: data.name,
+        };
+        updateUserProfile(userInfo)
+          .then(() => {
+            saveUser(name, email, role);
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.error(error.message);
+          });
+      console.log(user);
+
+      })
       .catch((error) => console.log(error));
     reset();
   };
@@ -46,6 +56,25 @@ const SignUp = () => {
         setLoading(false);
 
         toast.error(err.message);
+      });
+  };
+
+// save ser
+  const saveUser = (name, email, role) => {
+    const userInfo = { name, email, role };
+    fetch("https://flaire-dance-schol-server.vercel.app/create_user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert('success')
+        }
       });
   };
 

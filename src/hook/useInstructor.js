@@ -11,7 +11,7 @@ const useInstructor = (email) => {
       try {
         const response = await axios.get("https://flaire-dance-schol-server.vercel.app/user");
         const userData = response.data.find((user) => user.email === email);
-        if (userData && userData.role === "admin") {
+        if (userData && userData.role === "instructor") {
           setInstructor(true);
         }
       } catch (error) {

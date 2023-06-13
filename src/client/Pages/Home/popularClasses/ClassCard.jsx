@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ClassCard = ({ item }) => {
-  const { id, image, name, instructor, description, seats, price } = item;
+  const { _id, image, name, instructor, description, seats, price } = item;
   return (
     <div>
       <Link to={'/'} className="p-8 max-w-lg   rounded-2xl hover:shadow-sm hover:shadow-rose-400 flex flex-col items-center">

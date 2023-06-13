@@ -6,16 +6,15 @@ import { AuthContext } from "../provaider/AuthProvider";
 import Logo from "../components/shared/NavBar/Logo/Logo";
 import { AiOutlineBars } from "react-icons/ai";
 import { FcSettings } from "react-icons/fc";
-import { GrLogout } from "react-icons/gr";
+import { GrLogout, GrHomeRounded } from "react-icons/gr";
+import { SiGoogleclassroom } from "react-icons/si";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState("false");
-
   const navigate = useNavigate();
-  const [toggle, setToggle] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.displayName)
-  // Sidebar Responsive Handler
+
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -26,7 +25,6 @@ const Sidebar = () => {
   };
   return (
     <div>
-      {/* Small Screen Navbar */}
       <div className="bg-white text-gray-500 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
@@ -47,36 +45,71 @@ const Sidebar = () => {
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
-      
-         
-          <div>
-            <div className="w-full hidden md:flex py-2 justify-center items-center mx-auto">
-              <Logo />
-            </div>
-            
-            <div className="flex flex-col items-center mt-6 -mx-2">
-              <Link to="/dashboard">
-                <img
-                  className="object-cover w-24 h-24 mx-2 rounded-full"
-                  // src={user?.photoURL}
-                  alt="avatar"
-                  referrerPolicy="no-referrer"
-                />
-              </Link>
-              <Link to="/dashboard">
-                <h4 className="mx-2 mt-2 font-medium text-white  hover:underline">
-                  {user?.displayName}
-                </h4>
-              </Link>
-              <Link to="/dashboard">
-                <p className="mx-2 mt-1 text-sm font-medium text-white  hover:underline">
-                  {user?.email}
-                </p>
-              </Link>
-            </div>
+        <div>
+          <div className="w-full hidden md:flex py-2 justify-center items-center mx-auto">
+            <Logo />
           </div>
-         
-      
+
+          <div className="flex flex-col items-center px-5 mt-6 -mx-2">
+            <Link to="/dashboard">
+              <img
+                className="object-cover w-24 h-24 mx-2 border rounded-full"
+                // src={user?.photoURL}
+                alt="avatar"
+                referrerPolicy="no-referrer"
+              />
+            </Link>
+            <Link to="/dashboard">
+              <h4 className="mx-2 mt-2 font-medium text-white  hover:underline">
+                {user?.displayName}
+              </h4>
+            </Link>
+            <Link to="/dashboard">
+              <p className="mx-2 mt-1 text-sm font-medium text-white  hover:underline">
+                {user?.email}
+              </p>
+            </Link>
+          </div>
+        </div>
+       
+        <div className="flex flex-col gap-3">
+          <hr />
+          <NavLink to={"/dashboard/mySelectedClass"}>My Selected Classes</NavLink>
+          <NavLink>My Enroll Classes</NavLink>
+          <NavLink>Payment History</NavLink>
+        </div>
+
+
+
+
+
+
+
+        <div className="flex flex-col gap-4 ">
+        <hr />
+          <Link
+            to={"/dashboard"}
+            className="flex gap-4 item-center bg-gray-300 px-3 py-3 font-medium  text-gray-900"
+          >
+            <GrHomeRounded className="mt-1"></GrHomeRounded>
+            <p>Home</p>
+          </Link>
+          <Link
+            to={"/instructor"}
+            className="flex gap-4 item-center bg-gray-300 px-3 py-3 font-medium  text-gray-900"
+          >
+            <SiGoogleclassroom className="mt-1"></SiGoogleclassroom>
+            <p>All Dance Class</p>
+          </Link>
+          <Link
+            to={"/classess"}
+            className="flex gap-4 item-center bg-gray-300 px-3 py-3 font-medium  text-gray-900"
+          >
+            <FaChalkboardTeacher className="mt-1"></FaChalkboardTeacher>
+
+            <p>Our Instrocture</p>
+          </Link>
+        </div>
 
         <div>
           <hr />
@@ -84,7 +117,9 @@ const Sidebar = () => {
             to="/dashboard"
             className={({ isActive }) =>
               `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-100 ${
-                isActive ? "bg-gray-300 hover:bg-stone-900 border-2  text-stone-900" : "text-gray-100"
+                isActive
+                  ? "bg-gray-300 hover:bg-stone-900 border-2  text-stone-900"
+                  : "text-gray-100"
               }`
             }
           >

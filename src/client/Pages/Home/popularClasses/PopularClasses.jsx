@@ -48,7 +48,7 @@ const PopularClasses = () => {
 
         <div className="md:grid grid-cols-3 gap-8 py-10">
           {courses.slice(0,6).map((item) => (
-            <ClassCard key={item.id} item={item}></ClassCard>
+            <ClassCard key={item._id} item={item}></ClassCard>
           ))}
         </div>
       </Container>
