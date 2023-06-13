@@ -2,18 +2,32 @@ import React, { useEffect, useState } from "react";
 import SelectClassCard from "./SelectClassCard";
 import { useContext } from "react";
 import { AuthContext } from "../../provaider/AuthProvider";
+import Loader from "../../components/shared/Loader/Loader";
 
 const MySelectedClass = () => {
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
+
   const [selectClass, setSelectClass] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/selectedClass/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setSelectClass(data));
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div>
-      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+      {loading ? (
+        <Loader lable={"Welcome"}></Loader>
+      ) : (
+        <>
+           <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50">
             <tr>
@@ -45,6 +59,10 @@ const MySelectedClass = () => {
           </tbody>
         </table>
       </div>
+        </>
+      )}
+
+     
     </div>
   );
 };

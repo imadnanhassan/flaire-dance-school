@@ -73,7 +73,7 @@ const SignUp = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert('success')
+          toast.success('You are Successfully Login!')
         }
       });
   };

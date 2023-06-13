@@ -1,13 +1,9 @@
 import React from "react";
-import MySelectedClass from "./Student/MySelectedClass";
 
 const Dashboard = () => {
   return (
     <div>
-
-
-      
-      <MySelectedClass></MySelectedClass>
+     Welcome 
     </div>
   );
 };

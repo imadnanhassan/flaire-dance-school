@@ -3,6 +3,7 @@ import useAdmin from "../../../../hook/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../../../../provaider/AuthProvider";
 import useInstructor from "../../../../hook/useInstructor";
+import toast from "react-hot-toast";
 
 const AllClassCard = ({ item }) => {
   const { _id, image, name, instructor, description, seats, price } = item;
@@ -10,7 +11,6 @@ const AllClassCard = ({ item }) => {
 
   const { isAdmin } = useAdmin(user?.email);
   const { isInstructor } = useInstructor(user?.email);
-  // console.log(isAdmin, isInstructor);
   const handleSelectClass = () => {
     const selectedClassData = {
       class_id: _id,
@@ -19,7 +19,7 @@ const AllClassCard = ({ item }) => {
       instructor,
       student_email: user?.email,
       price,
-      user: user?.name
+      user: user?.name,
     };
     fetch("http://localhost:5000/selectedClass", {
       method: "POST",
@@ -31,9 +31,10 @@ const AllClassCard = ({ item }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        toast.success("class addedd successfull");
       })
       .catch((error) => {
-        console.error(error.message);
+        console.log(error.message);
       });
   };
 
