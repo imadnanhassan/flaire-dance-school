@@ -14,7 +14,7 @@ const PopularClasses = () => {
       const data = response.data;
       const sort = data.sort((a, b) => b.seats - a.seats);
       const sortData = sort.slice(0,6)
-      console.log(sortData);
+      
     });
   }, []);
 

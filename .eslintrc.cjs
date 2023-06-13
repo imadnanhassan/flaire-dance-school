@@ -18,6 +18,7 @@ module.exports = {
     'react/jsx-no-undef': 0,
     'react/prop-types': 0,
     'react/jsx-key': 0,
+    'no-unreachable':0,
     'react-hooks/exhaustive-deps':0,
     'react/jsx-no-target-blank':0
   },

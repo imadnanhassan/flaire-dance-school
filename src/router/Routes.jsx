@@ -11,7 +11,6 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layout/DashboardLayout";
 import MySelectedClass from "../dashboard/Student/MySelectedClass";
 import Dashboard from "../dashboard/Dashboard";
-import StudentRoute from "./StudentRoute";
 
 const router = createBrowserRouter([
   {
@@ -59,11 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/mySelectedClass",
-        element: (
-          <StudentRoute>
-            <MySelectedClass></MySelectedClass>,
-          </StudentRoute>
-        ),
+        element: <MySelectedClass></MySelectedClass>,
       },
     ],
   },

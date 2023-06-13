@@ -11,6 +11,31 @@ const AllClassCard = ({ item }) => {
   const { isAdmin } = useAdmin(user?.email);
   const { isInstructor } = useInstructor(user?.email);
   // console.log(isAdmin, isInstructor);
+  const handleSelectClass = () => {
+    const selectedClassData = {
+      class_id: _id,
+      image,
+      name,
+      instructor,
+      student_email: user?.email,
+      price,
+      user: user?.name
+    };
+    fetch("http://localhost:5000/selectedClass", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(selectedClassData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
 
   return (
     <div className="group">
@@ -35,6 +60,7 @@ const AllClassCard = ({ item }) => {
           <button
             disabled={isAdmin || isInstructor || seats === 0}
             className="py-2 px-5 rounded-md bg-rose-500 group-hover:bg-rose-400 text-white"
+            onClick={handleSelectClass}
           >
             Enroll Now
           </button>

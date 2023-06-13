@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
+import MySelectedClass from "./Student/MySelectedClass";
 
 const Dashboard = () => {
-   return (
-      <div>
-         welcome
-      </div>
-   );
+  return (
+    <div>
+
+
+      
+      <MySelectedClass></MySelectedClass>
+    </div>
+  );
 };
 
 export default Dashboard;
