@@ -9,7 +9,9 @@ const useInstructor = (email) => {
     const checkisInstructor = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("https://flaire-dance-schol-server.vercel.app/user");
+        const response = await axios.get(
+          "https://flaire-dance-schol-server-dev-abulhassan.vercel.app/user"
+        );
         const userData = response.data.find((user) => user.email === email);
         if (userData && userData.role === "instructor") {
           setInstructor(true);

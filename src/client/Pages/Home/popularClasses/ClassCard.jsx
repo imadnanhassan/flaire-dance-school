@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ClassCard = ({ item }) => {
-  const { _id, image, name, instructor, description, seats, price } = item;
+  const { _id, picture, name, instructor, description, seats, price } = item;
   return (
-    <div>
-      <Link to={'/'} className="p-8 max-w-lg   rounded-2xl hover:shadow-sm hover:shadow-rose-400 flex flex-col items-center">
-        <img src={image} className="shadow rounded-lg overflow-hidden border" />
+    <div className="border border-gray-800 border-b-4 hover:border-b-rose-800 shadow-2xl rounded-lg">
+      <Link
+        to={"/"}
+        className="p-8 rounded-2xl  flex flex-col items-center"
+      >
+        <img src={picture} className="shadow rounded-lg overflow-hidden" />
         <div className="mt-8 md:text-left">
           <div className="flex flex-col">
             <h4 className="font-semibold text-xl">{instructor}</h4>
@@ -16,12 +19,10 @@ const ClassCard = ({ item }) => {
               students care about.
             </p>
           </div>
-
           <div className="flex items-center justify-between py-2">
-        <p>Available seats {seats}</p>
+            <p>Available seats {seats}</p>
             <p>Price: {price}</p>
           </div>
-          
         </div>
       </Link>
     </div>

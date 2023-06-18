@@ -9,13 +9,14 @@ import axios from "axios";
 const PopularClasses = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    axios.get("https://flaire-dance-schol-server.vercel.app/class").then((response) => {
-      setCourses(response.data);
-      const data = response.data;
-      const sort = data.sort((a, b) => b.seats - a.seats);
-      const sortData = sort.slice(0,6)
-      
-    });
+    axios
+      .get("https://flaire-dance-schol-server-dev-abulhassan.vercel.app/class")
+      .then((response) => {
+        setCourses(response.data);
+        const data = response.data;
+        const sort = data.sort((a, b) => b.seats - a.seats);
+        const sortData = sort.slice(0, 6);
+      });
   }, []);
 
   return (
@@ -47,7 +48,7 @@ const PopularClasses = () => {
         </div>
 
         <div className="md:grid grid-cols-3 gap-8 py-10">
-          {courses.slice(0,6).map((item) => (
+          {courses.slice(0, 6).map((item) => (
             <ClassCard key={item._id} item={item}></ClassCard>
           ))}
         </div>

@@ -18,7 +18,7 @@ const JoinBtn = ({ setIsOpen, isOpen }) => {
           <div className="hidden sm:block relative  ">
             {user ? (
               <>
-                <Avatar></Avatar>
+                <Avatar user={user}></Avatar>
               </>
             ) : (
               <Link to={"/sign-in"}>Login</Link>

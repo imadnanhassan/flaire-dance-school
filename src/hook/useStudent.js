@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useAdmin = (email) => {
-  const [isAdmin, setIsAdmin] = useState(false);
+const useStudent = (email) => {
+  const [isStudent, setIsStudent] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const checkAdmin = async () => {
+    const checkisStudent = async () => {
       setIsLoading(true);
-
       try {
         const response = await axios.get(
           "https://flaire-dance-schol-server-dev-abulhassan.vercel.app/user"
         );
         const userData = response.data.find((user) => user.email === email);
-        if (userData && userData.role === "admin") {
-          setIsAdmin(true);
+        if (userData && userData.role === "student") {
+          setIsStudent(true);
         }
       } catch (error) {
         console.error("Error checking admin status:", error);
@@ -24,10 +23,10 @@ const useAdmin = (email) => {
       }
     };
 
-    checkAdmin();
+    checkisStudent();
   }, [email]);
 
-  return { isAdmin, isLoading };
+  return { isStudent, isLoading };
 };
 
-export default useAdmin;
+export default useStudent;

@@ -11,6 +11,11 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layout/DashboardLayout";
 import MySelectedClass from "../dashboard/Student/MySelectedClass";
 import Dashboard from "../dashboard/Dashboard";
+import AddClass from "../dashboard/Instructor/AddClass";
+import MyClass from "../dashboard/Instructor/MyClass";
+import ManageClass from "../dashboard/admin/ManageClass";
+import AdminRoute from "./AdminRoute";
+import ManageUser from "../dashboard/admin/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +64,30 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/mySelectedClass",
         element: <MySelectedClass></MySelectedClass>,
+      },
+      {
+        path: "/dashboard/addClass",
+        element: <AddClass></AddClass>,
+      },
+      {
+        path: "/dashboard/myClass",
+        element: <MyClass></MyClass>,
+      },
+      {
+        path: "/dashboard/allClass",
+        element: (
+          <AdminRoute>
+            <ManageClass></ManageClass>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/users",
+        element: (
+          <AdminRoute>
+            <ManageUser></ManageUser>
+          </AdminRoute>
+        ),
       },
     ],
   },

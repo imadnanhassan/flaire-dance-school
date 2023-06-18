@@ -5,14 +5,17 @@ import axios from "axios";
 import { useState } from "react";
 import AllClassCard from "./AllClassCard";
 import Loader from "../../../../components/shared/Loader/Loader";
+import { Helmet } from "react-helmet";
 
 const Classess = () => {
   const [classData, setClassData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get("https://flaire-dance-schol-server.vercel.app/class").then((response) => {
-      setClassData(response.data);
-    });
+    axios
+      .get("https://flaire-dance-schol-server-dev-abulhassan.vercel.app/class")
+      .then((response) => {
+        setClassData(response.data);
+      });
   }, []);
 
   useEffect(() => {
@@ -23,8 +26,12 @@ const Classess = () => {
 
   return (
     <div className="py-10">
+      <Helmet>
+        <title>All Dance Classes | Flaire Dance School React App</title>
+      </Helmet>
+
       {loading ? (
-        <Loader ></Loader>
+        <Loader></Loader>
       ) : (
         <Container>
           <div className="md:flex items-end justify-between">

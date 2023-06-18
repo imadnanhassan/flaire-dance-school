@@ -8,7 +8,6 @@ import {
 
 import Container from "../../Container";
 import Profile from "./Profile";
-import Button from "../../Button/Button";
 
 const Footer = () => {
   return (
@@ -90,7 +89,7 @@ const Footer = () => {
                   type="text"
                   placeholder="Your Email"
                 />
-                <Button label={"Subscribe"}></Button>
+                {/* <Button label={"Subscribe"}></Button> */}
               </div>
               <div className="flex gap-4 item-center mx-auto py-2">
                

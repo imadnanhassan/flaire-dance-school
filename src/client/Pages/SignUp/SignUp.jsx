@@ -4,10 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../provaider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
-  const { createUser, loading, setLoading, signInWithGoogle,updateUserProfile } =
-    useContext(AuthContext);
+  const imgbbKey = "276ccc379deb7c655e6e6e6e8290eebc";
+  const {
+    createUser,
+    loading,
+    setLoading,
+    signInWithGoogle,
+    updateUserProfile,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const { register, handleSubmit, reset } = useForm();
@@ -18,30 +25,47 @@ const SignUp = () => {
       toast.error("Password didn't Match.");
       return;
     }
+    const image = data.image[0];
+    console.log(image);
+    const formData = new FormData();
+    formData.append("image", image);
+
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        const name = data.name;
         const email = user.email;
-        const role = 'student';
+        const role = "student";
 
-
-        const userInfo = {
-          displayName: data.name,
-        };
-        updateUserProfile(userInfo)
-          .then(() => {
-            saveUser(name, email, role);
-            navigate(from, { replace: true });
-          })
-          .catch((error) => {
-            console.error(error.message);
+        const url = `https://api.imgbb.com/1/upload?key=${imgbbKey}`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((imageData) => {
+            if (imageData.success) {
+              const picture = imageData.data.url;
+              console.log(picture);
+              const name = data.name;
+              const userInfo = {
+                displayName: name,
+                photoURL: picture,
+              };
+              updateUserProfile(userInfo)
+                .then(() => {
+                  console.log(user);
+                  saveUser(name, email, role, picture);
+                  navigate(from, { replace: true });
+                  reset();
+                })
+                .catch((error) => {
+                  console.error(error.message);
+                });
+            }
           });
-      console.log(user);
-
+        console.log(user);
       })
       .catch((error) => console.log(error));
-    reset();
   };
 
   // Google signin
@@ -59,27 +83,35 @@ const SignUp = () => {
       });
   };
 
-// save ser
-  const saveUser = (name, email, role) => {
-    const userInfo = { name, email, role };
-    fetch("https://flaire-dance-schol-server.vercel.app/create_user", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    })
+  // save ser
+  const saveUser = (name, email, role, picture) => {
+    const userInfo = { name, email, role, picture };
+    fetch(
+      "https://flaire-dance-schol-server-dev-abulhassan.vercel.app/create_user",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.success('You are Successfully Login!')
+          toast.success("You are Successfully Login!");
+        } else {
+          toast.error(data.message);
         }
       });
   };
 
   return (
     <div className="py-12">
+      <Helmet>
+        <title>Sign Up | Flaire Dance School React App</title>
+      </Helmet>
       <Container>
         <div className="md:flex gap-32 ">
           {/* <div>
@@ -178,6 +210,7 @@ const SignUp = () => {
                       id="image"
                       name="image"
                       accept="image/*"
+                      {...register("image")}
                     />
                   </div>
 

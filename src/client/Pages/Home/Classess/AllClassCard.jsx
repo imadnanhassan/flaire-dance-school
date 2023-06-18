@@ -6,9 +6,8 @@ import useInstructor from "../../../../hook/useInstructor";
 import toast from "react-hot-toast";
 
 const AllClassCard = ({ item }) => {
-  const { _id, image, name, instructor, description, seats, price } = item;
-  const { user, loading, setloading } = useContext(AuthContext);
-
+  const { _id, picture, name, instructor, description, seats, price } = item;
+  const { user } = useContext(AuthContext);
   const { isAdmin } = useAdmin(user?.email);
   const { isInstructor } = useInstructor(user?.email);
   const handleSelectClass = () => {
@@ -21,17 +20,23 @@ const AllClassCard = ({ item }) => {
       price,
       user: user?.name,
     };
-    fetch("http://localhost:5000/selectedClass", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(selectedClassData),
-    })
+    fetch(
+      "http://localhoast:5000/selectedClass",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(selectedClassData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        toast.success("class addedd successfull");
+        if (data.acknowledged) {
+          toast.success("class addedd successfull");
+        } else {
+          toast.error(data.message);
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -39,9 +44,12 @@ const AllClassCard = ({ item }) => {
   };
 
   return (
-    <div className="group">
-      <div className="p-8 max-w-lg   rounded-2xl hover:shadow-sm  group-hover:shadow-rose-400 flex flex-col items-center">
-        <img src={image} className="shadow rounded-lg overflow-hidden border" />
+    <div className="group border rounded-md relative">
+      <div className="p-8 max-w-lg rounded-2xl flex flex-col items-center">
+        <img
+          src={picture}
+          className="shadow rounded-lg overflow-hidden border group-hover:scale-110 duration-300 transition-all group-hover:opacity-50"
+        />
         <div className="mt-8 md:text-left">
           <div className="flex flex-col">
             <h4 className="font-semibold text-xl">{instructor}</h4>
@@ -57,10 +65,10 @@ const AllClassCard = ({ item }) => {
             <p>Price: {price}</p>
           </div>
         </div>
-        <div className="pt-2">
+        <div className="pt-2 absolute opacity-0 group-hover:opacity-100 top-32 scale-0 group-hover:scale-100 duration-500 transition-all">
           <button
             disabled={isAdmin || isInstructor || seats === 0}
-            className="py-2 px-5 rounded-md bg-rose-500 group-hover:bg-rose-400 text-white"
+            className="py-2 px-5 rounded-md bg-rose-500 group-hover:bg-rose-600 text-white"
             onClick={handleSelectClass}
           >
             Enroll Now

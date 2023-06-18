@@ -9,11 +9,17 @@ import { FcSettings } from "react-icons/fc";
 import { GrLogout, GrHomeRounded } from "react-icons/gr";
 import { SiGoogleclassroom } from "react-icons/si";
 import { FaChalkboardTeacher } from "react-icons/fa";
+import useAdmin from "../hook/useAdmin";
+import useInstructor from "../hook/useInstructor";
+import useStudent from "../hook/useStudent";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState("false");
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
+  const { isAdmin } = useAdmin(user?.email);
+  const { isInstructor } = useInstructor(user?.email);
+  const { isStudent } = useStudent(user?.email);
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -23,6 +29,7 @@ const Sidebar = () => {
     logOut();
     navigate("/");
   };
+
   return (
     <div>
       <div className="bg-white text-gray-500 flex justify-between md:hidden">
@@ -54,7 +61,7 @@ const Sidebar = () => {
             <Link to="/dashboard">
               <img
                 className="object-cover w-24 h-24 mx-2 border rounded-full"
-                // src={user?.photoURL}
+                src={user?.photoURL}
                 alt="avatar"
                 referrerPolicy="no-referrer"
               />
@@ -71,22 +78,34 @@ const Sidebar = () => {
             </Link>
           </div>
         </div>
-       
+
         <div className="flex flex-col gap-3">
           <hr />
-          <NavLink to={"/dashboard/mySelectedClass"}>My Selected Classes</NavLink>
-          <NavLink>My Enroll Classes</NavLink>
-          <NavLink>Payment History</NavLink>
+          {isStudent && (
+            <>
+              <NavLink to={"/dashboard/mySelectedClass"}>
+                My Selected Classes
+              </NavLink>
+              <NavLink>My Enroll Classes</NavLink>
+              <NavLink>Payment History</NavLink>
+            </>
+          )}
+          {isInstructor && (
+            <>
+              <NavLink to={"/dashboard/addClass"}>Add Class</NavLink>
+              <NavLink to={"/dashboard/myClass"}>My Class</NavLink>
+            </>
+          )}
+          {isAdmin && (
+            <>
+              <NavLink to={"/dashboard/allClass"}>Manage Class</NavLink>
+              <NavLink to={"/dashboard/users"}>Manage Users</NavLink>
+            </>
+          )}
         </div>
 
-
-
-
-
-
-
         <div className="flex flex-col gap-4 ">
-        <hr />
+          <hr />
           <Link
             to={"/dashboard"}
             className="flex gap-4 item-center bg-gray-300 px-3 py-3 font-medium  text-gray-900"
@@ -95,14 +114,14 @@ const Sidebar = () => {
             <p>Home</p>
           </Link>
           <Link
-            to={"/instructor"}
+            to={"/classess"}
             className="flex gap-4 item-center bg-gray-300 px-3 py-3 font-medium  text-gray-900"
           >
             <SiGoogleclassroom className="mt-1"></SiGoogleclassroom>
             <p>All Dance Class</p>
           </Link>
           <Link
-            to={"/classess"}
+            to={"/instructor"}
             className="flex gap-4 item-center bg-gray-300 px-3 py-3 font-medium  text-gray-900"
           >
             <FaChalkboardTeacher className="mt-1"></FaChalkboardTeacher>
@@ -137,7 +156,6 @@ const Sidebar = () => {
           </button>
         </div>
       </div>
-      
     </div>
   );
 };

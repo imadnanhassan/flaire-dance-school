@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../provaider/AuthProvider";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const [err, setErr] = useState("");
@@ -58,6 +59,9 @@ const Login = () => {
 
   return (
     <div className="py-24">
+       <Helmet>
+        <title>login | Flaire Dance School React App</title>
+      </Helmet>
       <Container>
         <div className="md:flex items-center  gap-60">
           {/* <div>
