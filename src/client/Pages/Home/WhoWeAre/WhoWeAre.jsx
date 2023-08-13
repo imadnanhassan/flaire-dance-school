@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 const WhoWeAre = () => {
   return (
     <Container>
-      <div className="lg:flex md:flex gap-12 items-center">
+      <div className="lg:flex md:flex gap-[150px] items-center">
         <div>
           <div className="mb-4">
             <img
@@ -22,7 +22,7 @@ const WhoWeAre = () => {
 
         <Fade left>
           <div className="flex flex-col text-left">
-            <h3 className="md:text-xl text-lg font-semibold  text-[#E6382E]">
+            <h3 className="md:text-5xl text-lg font-semibold  text-[#E6382E]">
               Who We Are
             </h3>
 
@@ -32,7 +32,7 @@ const WhoWeAre = () => {
               </h2>
             </div>
             <div className="py-5">
-              <p className="text-gray-500 leading-6 font-light md:font-normal">
+              <p className="text-gray-500 leading-6  md:font-normal text-[20px]">
                 This also meant we needed to provide a learning environment run
                 by
                 <br />
@@ -42,7 +42,7 @@ const WhoWeAre = () => {
               </p>
             </div>
             <Link to={"/about"}>
-              <button className="py-4 px-8 rounded-md md:w-48  w-full bg-[#E6382E] transition-all hover:bg-black font-semibold text-white">
+              <button className="py-4 px-8 rounded-md md:w-48 text-xl w-full bg-[#E6382E] transition-all hover:bg-black font-semibold text-white">
                 About Us
               </button>
             </Link>

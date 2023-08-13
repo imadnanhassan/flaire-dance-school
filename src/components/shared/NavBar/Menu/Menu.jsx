@@ -38,10 +38,10 @@ const Menu = ({isOpen}) => {
 
   return (
     <div className="relative">
-      <ul className="items-stretch hidden space-x-3 lg:flex text-white">
+      <ul className="items-stretch text-lg hidden space-x-3 lg:flex text-white">
         {menuItems}
       </ul>
-      <ul className="lg:hidden absolute top-8 z-10 bg-black w-[500px] -right-8   text-white">
+      <ul className="lg:hidden absolute top-8 z-10 w-[500px] -right-8  text-white">
         {isOpen && menuItems }
       </ul>
     </div>

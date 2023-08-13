@@ -1,9 +1,7 @@
 import React from "react";
 
 const InstructorCard = ({ data }) => {
-   console.log(data)
   const { email, picture, name } = data;
-
   return (
     <div className=" md:max-w-md py-4 px-8 bg-white shadow-xl rounded-lg my-20">
       <div className="flex justify-center md:justify-start sm:justify-start lg:justify-start sm:-ml-8 md:-mt-20 -mt-16  md:-ml-8">
